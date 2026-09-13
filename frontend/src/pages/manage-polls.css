@@ -1,0 +1,1091 @@
+/* =========================================================
+   CAMPUSVOTE
+   MANAGE POLLS
+   Navy + Cream + Yellow
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.admin-page {
+  min-height: 100vh;
+  background: #f7f3ea;
+  color: #172033;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.admin-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  width: 260px;
+
+  background: #111a2e;
+  color: #ffffff;
+
+  padding: 28px 18px;
+
+  display: flex;
+  flex-direction: column;
+
+  z-index: 1000;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 4px 10px 32px;
+}
+
+.brand-icon {
+  width: 44px;
+  height: 44px;
+
+  border-radius: 12px;
+
+  background: #f4c542;
+  color: #111a2e;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.brand h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.brand span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #aeb7c8;
+
+  font-size: 11px;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   SIDEBAR MENU
+========================================================= */
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.sidebar-menu button {
+  width: 100%;
+  min-height: 48px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: #b8c0d0;
+
+  padding: 0 14px;
+
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  text-align: left;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.sidebar-menu button i {
+  width: 20px;
+
+  text-align: center;
+
+  font-size: 17px;
+}
+
+.sidebar-menu button:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: #ffffff;
+}
+
+.sidebar-menu button.active {
+  background: #f4c542;
+  color: #111a2e;
+}
+
+.sidebar-menu button.active i {
+  color: #111a2e;
+}
+
+
+/* =========================================================
+   SIDEBAR FOOTER
+========================================================= */
+
+.sidebar-footer {
+  margin-top: auto;
+
+  padding-top: 20px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-profile {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  padding: 8px 7px 14px;
+}
+
+.admin-avatar {
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #e9dfca;
+  color: #111a2e;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.admin-profile strong {
+  display: block;
+
+  color: #ffffff;
+
+  font-size: 13px;
+}
+
+.admin-profile span {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #9fa9bc;
+
+  font-size: 10px;
+}
+
+.logout-btn {
+  width: 100%;
+  height: 44px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: transparent;
+
+  color: #b8c0d0;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 0 13px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: #ffffff;
+}
+
+.logout-btn i {
+  font-size: 17px;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.admin-main {
+  width: calc(100% - 260px);
+
+  margin-left: 260px;
+
+  min-height: 100vh;
+
+  padding: 42px 46px 55px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  gap: 25px;
+
+  margin-bottom: 30px;
+}
+
+.eyebrow {
+  margin: 0 0 7px;
+
+  color: #a28125;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.7px;
+}
+
+.page-header h1 {
+  margin: 0;
+
+  color: #111a2e;
+
+  font-family: "DM Sans", Arial, sans-serif;
+
+  font-size: 34px;
+  font-weight: 800;
+
+  letter-spacing: -1px;
+}
+
+.page-subtitle {
+  margin: 8px 0 0;
+
+  color: #737b8b;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   CREATE BUTTON
+========================================================= */
+
+.create-poll-btn {
+  min-height: 44px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #f4c542;
+  color: #111a2e;
+
+  padding: 0 18px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  text-decoration: none;
+
+  transition: 0.2s ease;
+}
+
+.create-poll-btn:hover {
+  background: #e9b82e;
+
+  color: #111a2e;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.admin-message {
+  min-height: 48px;
+
+  margin-bottom: 20px;
+
+  padding: 10px 15px;
+
+  border: 1px solid #e6dcc3;
+  border-radius: 9px;
+
+  background: #fffaf0;
+
+  color: #63531f;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.admin-message > div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.admin-message i {
+  color: #b18d1e;
+}
+
+.admin-message button {
+  width: 28px;
+  height: 28px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: transparent;
+
+  color: #77705e;
+
+  font-size: 20px;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.admin-message button:hover {
+  background: #f0e6cf;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.empty-box {
+  min-height: 390px;
+
+  background: #ffffff;
+
+  border: 1px solid #e8e2d7;
+  border-radius: 14px;
+
+  box-shadow: 0 4px 18px rgba(25, 32, 48, 0.03);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 40px 25px;
+}
+
+.empty-icon {
+  width: 58px;
+  height: 58px;
+
+  margin-bottom: 17px;
+
+  border-radius: 15px;
+
+  background: #f8edc5;
+  color: #92731c;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 23px;
+}
+
+.empty-box h3 {
+  margin: 0 0 7px;
+
+  color: #172033;
+
+  font-family: "DM Sans", Arial, sans-serif;
+
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.empty-box p {
+  margin: 0 0 20px;
+
+  color: #858b97;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   POLL TABLE CARD
+========================================================= */
+
+.poll-table-card {
+  background: #ffffff;
+
+  border: 1px solid #e8e2d7;
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  box-shadow: 0 4px 18px rgba(25, 32, 48, 0.03);
+}
+
+
+/* =========================================================
+   TABLE HEADER
+========================================================= */
+
+.table-header {
+  min-height: 88px;
+
+  padding: 20px 25px;
+
+  border-bottom: 1px solid #ece7dd;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.table-header p {
+  margin: 0 0 5px;
+
+  color: #a28125;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.table-header h3 {
+  margin: 0;
+
+  color: #111a2e;
+
+  font-family: "DM Sans", Arial, sans-serif;
+
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.poll-count {
+  padding: 7px 11px;
+
+  border-radius: 20px;
+
+  background: #f2f0eb;
+
+  color: #626a79;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.poll-table {
+  width: 100%;
+
+  min-width: 1000px;
+
+  border-collapse: collapse;
+}
+
+.poll-table thead {
+  background: #faf8f3;
+}
+
+.poll-table th {
+  padding: 13px 20px;
+
+  color: #858b97;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.8px;
+
+  text-align: left;
+
+  white-space: nowrap;
+}
+
+.poll-table td {
+  padding: 17px 20px;
+
+  border-top: 1px solid #eeeae2;
+
+  color: #606877;
+
+  font-size: 11px;
+
+  vertical-align: middle;
+}
+
+.poll-table tbody tr {
+  transition: 0.15s ease;
+}
+
+.poll-table tbody tr:hover {
+  background: #fcfaf5;
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.row-number {
+  color: #9a9fa9;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   POLL INFORMATION
+========================================================= */
+
+.poll-info {
+  min-width: 270px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.poll-icon {
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  border-radius: 10px;
+
+  background: #eef0f4;
+  color: #26334d;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+}
+
+.poll-title {
+  max-width: 340px;
+
+  color: #172033;
+
+  font-size: 12px;
+  font-weight: 750;
+
+  line-height: 1.4;
+}
+
+.poll-description {
+  max-width: 340px;
+
+  margin-top: 4px;
+
+  color: #989da7;
+
+  font-size: 10px;
+
+  line-height: 1.4;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.date-cell {
+  min-width: 135px;
+
+  color: #686f7d;
+
+  font-size: 10px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  min-height: 25px;
+
+  padding: 5px 9px;
+
+  border-radius: 20px;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: currentColor;
+}
+
+
+/* Active */
+
+.status-active {
+  background: #e8f5ec;
+  color: #287344;
+}
+
+
+/* Upcoming */
+
+.status-upcoming {
+  background: #fff3cf;
+  color: #876b17;
+}
+
+
+/* Ended */
+
+.status-ended {
+  background: #edf1f7;
+  color: #52627d;
+}
+
+
+/* Closed */
+
+.status-closed {
+  background: #f0f0f0;
+  color: #777777;
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+.action-buttons {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  white-space: nowrap;
+}
+
+.action-btn {
+  min-height: 31px;
+
+  border: none;
+  border-radius: 7px;
+
+  padding: 0 9px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.action-btn i {
+  font-size: 11px;
+}
+
+
+/* Edit */
+
+.edit-btn {
+  background: #edf1f7;
+  color: #25344f;
+}
+
+.edit-btn:hover {
+  background: #dfe5ef;
+  color: #111a2e;
+}
+
+
+/* Results */
+
+.results-btn {
+  background: #fff3ca;
+  color: #876b17;
+}
+
+.results-btn:hover {
+  background: #f9e6a9;
+  color: #6e570e;
+}
+
+
+/* Delete */
+
+.delete-btn {
+  background: #fbecec;
+  color: #a34747;
+}
+
+.delete-btn:hover {
+  background: #f5dcdc;
+  color: #8b3333;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading-box {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #687080;
+}
+
+.loading-box p {
+  margin: 13px 0 0;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.loading-spinner {
+  width: 35px;
+  height: 35px;
+
+  border: 3px solid #e9e2d3;
+  border-top-color: #c3a329;
+
+  border-radius: 50%;
+
+  animation: managePollsSpin 0.8s linear infinite;
+}
+
+@keyframes managePollsSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   MOBILE NAV
+========================================================= */
+
+.mobile-nav {
+  display: none;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .admin-sidebar {
+    width: 225px;
+  }
+
+  .admin-main {
+    width: calc(100% - 225px);
+
+    margin-left: 225px;
+
+    padding: 35px 28px 45px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .admin-page {
+    padding-bottom: 72px;
+  }
+
+
+  /* Hide desktop sidebar */
+
+  .admin-sidebar {
+    display: none;
+  }
+
+
+  /* Main */
+
+  .admin-main {
+    width: 100%;
+
+    margin-left: 0;
+
+    padding: 24px 15px 30px;
+  }
+
+
+  /* Header */
+
+  .page-header {
+    display: block;
+
+    margin-bottom: 24px;
+  }
+
+  .page-header h1 {
+    font-size: 27px;
+  }
+
+  .page-subtitle {
+    font-size: 11px;
+  }
+
+  .page-header .create-poll-btn {
+    width: 100%;
+
+    margin-top: 18px;
+  }
+
+
+  /* Message */
+
+  .admin-message {
+    font-size: 10px;
+  }
+
+
+  /* Table card */
+
+  .poll-table-card {
+    border-radius: 11px;
+  }
+
+  .table-header {
+    min-height: 78px;
+
+    padding: 17px;
+  }
+
+  .table-header h3 {
+    font-size: 17px;
+  }
+
+  .poll-count {
+    font-size: 9px;
+  }
+
+
+  /* Table */
+
+  .poll-table {
+    min-width: 950px;
+  }
+
+
+  /* Mobile nav */
+
+  .mobile-nav {
+    position: fixed;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 64px;
+
+    background: #111a2e;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-around;
+
+    padding: 5px 8px;
+
+    z-index: 2000;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .mobile-nav button {
+    min-width: 75px;
+
+    height: 53px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: #aeb7c8;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 3px;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    cursor: pointer;
+  }
+
+  .mobile-nav button i {
+    font-size: 17px;
+  }
+
+  .mobile-nav button:hover {
+    color: #ffffff;
+  }
+
+  .mobile-nav button.mobile-active {
+    background: #f4c542;
+
+    color: #111a2e;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .admin-main {
+    padding: 21px 11px 25px;
+  }
+
+  .page-header h1 {
+    font-size: 25px;
+  }
+
+  .poll-table-card {
+    border-radius: 10px;
+  }
+
+  .table-header {
+    padding: 15px;
+  }
+
+  .table-header h3 {
+    font-size: 16px;
+  }
+
+  .mobile-nav button {
+    min-width: 68px;
+  }
+
+}

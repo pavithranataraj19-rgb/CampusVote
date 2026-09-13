@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: #f7f3e8;
+}
+
+button,
+input {
+  font-family: inherit;
+}

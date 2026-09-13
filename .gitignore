@@ -1,0 +1,46 @@
+# ==============================
+# VS Code
+# ==============================
+.vscode/
+
+
+# ==============================
+# Backend - Spring Boot
+# ==============================
+backend/bin/
+backend/target/
+backend/.idea/
+backend/*.iml
+
+# Java compiled files
+*.class
+
+# Maven generated files
+backend/.mvn/wrapper/maven-wrapper.jar
+
+
+# ==============================
+# Frontend - React / Vite
+# ==============================
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+
+# ==============================
+# Environment / Secrets
+# ==============================
+.env
+.env.*
+!.env.example
+
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+
+# ==============================
+# OS files
+# ==============================
+.DS_Store
+Thumbs.db
